@@ -349,19 +349,8 @@
 
     <script
       type="text/javascript"
-      src="http://js.nicedit.com/nicEdit-latest.js"
+      src="https://js.nicedit.com/nicEdit-latest.js"
     ></script>
-    <script type="text/javascript">
-      bkLib.onDomLoaded(function () {
-        new nicEditor({ maxHeight: 200 }).panelInstance("jobdescription");
-      });
-      bkLib.onDomLoaded(function () {
-        new nicEditor({ maxHeight: 200 }).panelInstance("interest");
-      });
-      bkLib.onDomLoaded(function () {
-        new nicEditor({ maxHeight: 200 }).panelInstance("request");
-      });
-    </script>
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
@@ -377,16 +366,15 @@
         });
       });
 
-      // bkLib.onDomLoaded(function () {
-      //   ndPanel = new nicEditor({ maxHeight: 200 }).panelInstance("area");
-      //   ndinstance = ndPanel.nicInstances[0];
-      // });
-      // var c = ndinstance.getContent();
-      // var start_ptn = /(<.[^>]+>)*/gim; //Filter label opening
-      // var end_ptn = /<\/?\w+>$/; //Filter tag ends
-      // var space_ptn = /(&nbsp;)*/; //Filter spaces
-      // var c1 = c.replace(start_ptn, "").replace(end_ptn).replace(space_ptn, "");
-      // console.log(c1);
+      bkLib.onDomLoaded(function () {
+        new nicEditor({ maxHeight: 200 }).panelInstance("jobdescription");
+      });
+      bkLib.onDomLoaded(function () {
+        new nicEditor({ maxHeight: 200 }).panelInstance("interest");
+      });
+      bkLib.onDomLoaded(function () {
+        new nicEditor({ maxHeight: 200 }).panelInstance("request");
+      });
     </script>
   </body>
 </html>
