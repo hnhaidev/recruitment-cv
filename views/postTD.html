@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Đăng tin tuyển dụng</title>
+  </head>
+  <body class="bg-dark text-light">
+    <div class="bg-dark text-light">
+      <!-- header -->
+      <header>
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="/">MY CV</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/"
+                      >Trang Chủ</a
+                    >
+                  </li>
+                  <li class="nav-item" id="nav-postTD">
+                    <a class="nav-link active" href="/postTD"
+                      >Đăng tin tuyển dụng</a
+                    >
+                  </li>
+                  <li class="nav-item" id="nav-searchCV">
+                    <a class="nav-link" href="/searchCV">Tìm ứng viên</a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item btn-login">
+                    <a class="nav-link active" href="/login">Đăng Nhập</a>
+                  </li>
+                  <div class="btn-group btn-user">
+                    <a
+                      class="nav-link active dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      id="btn-username"
+                    >
+                      Action
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="/my-document"
+                          >Quản lý hồ sơ</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="/about">Giới thiệu</a>
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" id="btn-logout" href="#"
+                          >Đăng xuất</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- body -->
+
+      <section class="mt-5 pt-5">
+        <div class="container">
+          <div class="banner-postCV">
+            <div class="row">
+              <div class="col-8">
+                <h1 class="py-1">TUYỂN NHÂN VIÊN SIÊU TỐC</h1>
+                <h5 class="py-1">
+                  <i>BẬT ĐÈN XANH CHO ỨNG VIÊN</i>
+                </h5>
+                <h6 class="py-1">
+                  Tự động gửi tin tuyển dụng tới 95.000+ ứng viên ngay tức thì
+                </h6>
+              </div>
+              <div class="col-4">
+                <div class="text-center editor-cv">
+                  <a href="/searchCV" class="text-light">
+                    <img
+                      src="https://www.topcv.vn/v3/images/super-fast-job/icon_CV.png"
+                      alt=""
+                    />
+                    <p>Tìm ứng viên ngay</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-cv mt-5">
+        <div class="container">
+          <form
+            class="g-3"
+            action="/postTD"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="mt-5">
+              <h6>Thông tin công tin</h6>
+              <div>
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center">
+                    <div class="col-3">Tên công ty:</div>
+                    <div class="col-9">
+                      <input
+                        type="text"
+                        name="nameCompany"
+                        id="nameCompany"
+                        class="form-control form-control-sm bg-dark text-light"
+                        placeholder="Tên công ty"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Công việc cần tuyển:</div>
+                    <div class="col-9">
+                      <input
+                        type="text"
+                        name="job"
+                        id="job"
+                        class="form-control form-control-sm bg-dark text-light"
+                        placeholder="Công việc cần tuyển"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Ngày bắt đầu:</div>
+                    <div class="col-9">
+                      <input
+                        type="date"
+                        name="dateStart"
+                        id="dateStart"
+                        class="form-control form-control-sm bg-dark text-light"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Ngày kết thúc:</div>
+                    <div class="col-9">
+                      <input
+                        type="date"
+                        name="dateEnd"
+                        id="dateEnd"
+                        class="form-control form-control-sm bg-dark text-light"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Mức lương dự tính:</div>
+                    <div class="col-9">
+                      <input
+                        type="number"
+                        name="salary"
+                        id="salary"
+                        class="form-control form-control-sm bg-dark text-light"
+                        placeholder="Mức lương dự tính"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Hình thức công việc:</div>
+                    <div class="col-9">
+                      <select
+                        class="form-select form-select-sm bg-dark text-light"
+                        id="Workingform"
+                        name="Workingform"
+                        required
+                      >
+                        <option selected disabled value="">
+                          Hình thức công việc
+                        </option>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Kinh nghiệm làm việc:</div>
+                    <div class="col-9">
+                      <select
+                        class="form-select form-select-sm bg-dark text-light"
+                        id="experience"
+                        name="experience"
+                        required
+                      >
+                        <option selected disabled value="">
+                          --Thời gian làm việc ngành nghề đã chọn--
+                        </option>
+                        <option value="Chưa có kinh nghiệm">
+                          Chưa có kinh nghiệm
+                        </option>
+                        <option value="Dưới 1 năm">Dưới 1 năm</option>
+                        <option value="1 năm">1 năm</option>
+                        <option value="2 năm">2 năm</option>
+                        <option value="3 năm">3 năm</option>
+                        <option value="4 năm">4 năm</option>
+                        <option value="5 năm">5 năm</option>
+                        <option value="Trên 5 năm">Trên 5 năm</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto group-form-cv">
+                  <div class="d-flex align-items-center mt-3">
+                    <div class="col-3">Địa điểm làm việc :</div>
+                    <div class="col-9">
+                      <select
+                        class="form-select form-select-sm bg-dark text-light"
+                        aria-label=".form-select-sm codeCity"
+                        id="codeCity"
+                        name="codeCity"
+                        required
+                      >
+                        <option selected disabled value="">
+                          Lựa chọn địa điểm bạn có thể làm việc
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <h6>Thông tin tuyển dụng</h6>
+              <div class="mx-auto group-form-cv">
+                <div class="d-flex mt-3">
+                  <div class="col-3">Mô tả công việc:</div>
+                  <div class="col-9">
+                    <textarea
+                      name="jobdescription"
+                      id="jobdescription"
+                      style="width: 100%; height: 200px"
+                      required
+                    >
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mx-auto group-form-cv">
+                <div class="d-flex mt-3">
+                  <div class="col-3">Quyền lợi được hưởng:</div>
+                  <div class="col-9">
+                    <textarea
+                      name="interest"
+                      id="interest"
+                      style="width: 100%; height: 200px"
+                      required
+                    >
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mx-auto group-form-cv">
+                <div class="d-flex mt-3">
+                  <div class="col-3">Yêu cầu khác:</div>
+                  <div class="col-9">
+                    <textarea
+                      name="request"
+                      id="request"
+                      style="width: 100%; height: 200px"
+                      required
+                    >
+                    </textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mx-auto group-form-cv">
+                <div class="d-flex align-items-center mt-3">
+                  <div class="col-3">Hình thức nộp hồ sơ:</div>
+                  <div class="col-9">
+                    <select
+                      class="form-select form-select-sm bg-dark text-light"
+                      id="formsubmit"
+                      name="formsubmit"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Hình thức nộp hồ sơ
+                      </option>
+                      <option value="Bấm vào nút NỘP HỒ SƠ để ứng tuyển">
+                        Bấm vào nút NỘP HỒ SƠ để ứng tuyển
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 text-center">
+              <button type="submit" class="btn btn-light" id="btn-post-td">
+                Hoàn thành
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="http://js.nicedit.com/nicEdit-latest.js"
+    ></script>
+    <script type="text/javascript">
+      bkLib.onDomLoaded(function () {
+        new nicEditor({ maxHeight: 200 }).panelInstance("jobdescription");
+      });
+      bkLib.onDomLoaded(function () {
+        new nicEditor({ maxHeight: 200 }).panelInstance("interest");
+      });
+      bkLib.onDomLoaded(function () {
+        new nicEditor({ maxHeight: 200 }).panelInstance("request");
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script>
+      $.get("/json/local.json", function (data) {
+        data.map((val) => {
+          $(`
+          <option value="${val.code}">${val.name}</option>
+          `).appendTo("#codeCity");
+        });
+      });
+
+      // bkLib.onDomLoaded(function () {
+      //   ndPanel = new nicEditor({ maxHeight: 200 }).panelInstance("area");
+      //   ndinstance = ndPanel.nicInstances[0];
+      // });
+      // var c = ndinstance.getContent();
+      // var start_ptn = /(<.[^>]+>)*/gim; //Filter label opening
+      // var end_ptn = /<\/?\w+>$/; //Filter tag ends
+      // var space_ptn = /(&nbsp;)*/; //Filter spaces
+      // var c1 = c.replace(start_ptn, "").replace(end_ptn).replace(space_ptn, "");
+      // console.log(c1);
+    </script>
+  </body>
+</html>

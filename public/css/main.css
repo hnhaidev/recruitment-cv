@@ -1,0 +1,149 @@
+body {
+  background: #343a40;
+  line-height: 1.4em;
+  padding: 0;
+  margin: 0;
+}
+
+#right {
+  background: #343a40;
+  line-height: 1em;
+}
+#right * {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+}
+
+.header-right {
+  border-bottom: 1px dashed #fff;
+}
+
+#right .accordion-button {
+  padding: 6px 12px;
+  font-weight: 600;
+}
+
+.container-cv {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+#page {
+  width: 21cm;
+  min-height: 842px;
+  background-color: #fff;
+  margin: 1% auto 1% auto;
+  box-shadow: 0px 0px 20px 0px #000;
+  line-height: 1.4em;
+  text-align: left;
+  font-size: 14px;
+}
+
+.add-img {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.add-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.add-img:hover figcaption,
+.add-img:focus figcaption {
+  visibility: visible;
+}
+
+.add-img figcaption {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0.5;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.add-img figcaption img {
+  color: #333;
+  width: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#update-content {
+  padding: 1rem;
+  box-shadow: 0px 0px 20px 0px #000;
+  border-radius: 3px;
+}
+
+#update-content select,
+#update-content button {
+  width: 7rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-left: 0.1rem;
+  font-size: 0.75rem;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: 500;
+}
+
+/* cv 2 */
+.full-name {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 700;
+  width: 100%;
+  line-height: 34px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+.text-title {
+  padding-right: 5px;
+  width: 230px;
+  margin-left: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.icon-title {
+  font-size: 26px;
+}
+.cv-content-w {
+  margin-top: 15px;
+}
+.icon-content {
+  margin-right: 10px;
+}
+.title-c2 {
+  display: block;
+  font-size: 12px;
+}
+
+.certificatecv-2 {
+  margin-top: 10px;
+}
+
+.bb-cv {
+  border-bottom: 1px solid #0d6efd;
+  padding-bottom: 10px;
+}
+
+#ipname {
+  display: none;
+}
+
+#list-cv-dd {
+  width: 220px;
+  padding: 10px;
+}

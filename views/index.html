@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body class="bg-dark">
+    <div class="bg-dark text-light">
+      <!-- header -->
+      <header>
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="/">MY CV</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/"
+                      >Trang Chủ</a
+                    >
+                  </li>
+                  <li class="nav-item" id="nav-searchTD">
+                    <a class="nav-link" href="/searchTD">Tìm việc làm</a>
+                  </li>
+                  <li class="nav-item" id="nav-postCV">
+                    <a class="nav-link" href="/postCV">Việc làm cấp tốc</a>
+                  </li>
+                  <li class="nav-item" id="nav-editor">
+                    <a class="nav-link" href="/editor">Mẫu CV</a>
+                  </li>
+                  <li class="nav-item" id="nav-postTD">
+                    <a class="nav-link" href="/postTD">Đăng tin tuyển dụng</a>
+                  </li>
+                  <li class="nav-item" id="nav-searchCV">
+                    <a class="nav-link" href="/searchCV">Tìm ứng viên</a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item btn-login">
+                    <a class="nav-link active" href="/login">Đăng Nhập</a>
+                  </li>
+                  <div class="btn-group btn-user">
+                    <a
+                      class="nav-link active dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                      id="btn-username"
+                    >
+                      Action
+                    </a>
+                    <ul class="dropdown-menu" id="user-content">
+                      <li>
+                        <a class="dropdown-item" href="/my-document"
+                          >Quản lý hồ sơ</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="/about">Giới thiệu</a>
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" id="btn-logout" href="#"
+                          >Đăng xuất</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- body -->
+
+      <section class="section-header banner mt-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-12">
+              <h1>TÌM VIỆC KHÓ - CÓ HAINE</h1>
+              <h4 class="font-italic mt-3">
+                SỞ HỮU NGAY CV XỊN CÙNG VIỆC LÀM MƠ ƯỚC
+              </h4>
+              <p class="mt-3">
+                30.000+ cơ hội việc làm được kết nối thành công qua CVHOMNAY mỗi
+                ngày
+              </p>
+              <div class="mt-4">
+                <!-- <button type="button" class="btn btn-light"> -->
+                <a href="/editor" class="btn btn-light">Tạo CV Online</a>
+                <!-- </button> -->
+                <!-- <button type="button" class="btn btn-secondary ms-3"> -->
+                <a href="/postCV" class="btn btn-secondary ms-3"
+                  >Việc làm cấp tốc</a
+                >
+                <!-- </button> -->
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 pt-1">
+              <img
+                src="https://www.topcv.vn/v3/images/super-fast-job/image_topcv.png"
+                class="img-responsive"
+                style="max-width: 80%"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-5">
+        <div class="container">
+          <div class="card bg-secondary text-light">
+            <div class="card-header"><h4>Thông tin công việc cần tìm</h4></div>
+            <div class="card-body">
+              <p><b># Tiêu chí tìm kiếm</b></p>
+              <div class="row">
+                <div class="col-4">
+                  <label for="job" class="form-label label-text"
+                    >Vị trí ứng tuyển</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-sm bg-secondary text-light"
+                    id="job"
+                    name="job"
+                    placeholder="Vị trí ứng tuyển"
+                  />
+                </div>
+
+                <div class="col-4">
+                  <label for="experience" class="form-label label-text"
+                    >Kinh nghiệm làm việc</label
+                  >
+                  <select
+                    class="form-select form-select-sm bg-secondary text-light"
+                    id="experience"
+                    name="experience"
+                    required
+                  >
+                    <option selected disabled value="">
+                      Thời gian làm việc ngành nghề đã chọn
+                    </option>
+                    <option value="Chưa có kinh nghiệm">
+                      Chưa có kinh nghiệm
+                    </option>
+                    <option value="Dưới 1 năm">Dưới 1 năm</option>
+                    <option value="1 năm">1 năm</option>
+                    <option value="2 năm">2 năm</option>
+                    <option value="3 năm">3 năm</option>
+                    <option value="4 năm">4 năm</option>
+                    <option value="5 năm">5 năm</option>
+                    <option value="Trên 5 năm">Trên 5 năm</option>
+                  </select>
+                </div>
+
+                <div class="col-4">
+                  <label for="codeCity" class="form-label label-text"
+                    >Địa điểm làm việc</label
+                  >
+                  <select
+                    class="form-select form-select-sm bg-secondary text-light"
+                    aria-label=".form-select-sm codeCity"
+                    id="codeCity"
+                    name="codeCity"
+                    required
+                  >
+                    <option selected disabled value="">
+                      Lựa chọn địa điểm bạn có thể làm việc
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-3">
+                <button
+                  type="button"
+                  class="btn btn-dark btn-sm"
+                  id="btn-search"
+                >
+                  Tìm kiếm
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-5 step-build-cv">
+        <div class="container">
+          <h2 class="text-center">
+            Xây dựng CV chuyên nghiệp chuẩn Quốc Tế trong 3 bước đơn giản
+          </h2>
+
+          <div class="row mt-5">
+            <div
+              class="col-md-4 col-sm-6 d-flex align-items-center flex-column"
+            >
+              <div class="icon-wrapper text-dark bg-light">
+                <span>1</span>
+              </div>
+              <div class="text ps-2">
+                Chọn lấy một thiết kế CV chuyên nghiệp
+              </div>
+            </div>
+
+            <div
+              class="col-md-4 col-sm-6 d-flex align-items-center flex-column"
+            >
+              <div class="icon-wrapper text-dark bg-light">
+                <span>2</span>
+              </div>
+              <div class="text ps-2">
+                Điền thông tin của bạn theo các gợi ý của MyCV
+              </div>
+            </div>
+
+            <div
+              class="col-md-4 col-sm-6 d-flex align-items-center flex-column"
+            >
+              <div class="icon-wrapper text-dark bg-light">
+                <span>3</span>
+              </div>
+              <div class="text ps-2">
+                Tải về file PDF miễn phí và ứng tuyển việc làm ngay!
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="step-build-cv" style="margin-top: 100px">
+        <div class="container">
+          <h2 class="text-center">
+            Tại sao MyCV giúp bạn sớm có được công việc như mong ước?
+          </h2>
+          <div class="row mt-5">
+            <div class="col-md-3 col-sm-6 text-center">
+              <img class="img" src="./img/save_time.svg" alt="Save time" />
+              <h5>Tiết kiệm thời gian!</h5>
+              <p>
+                Chỉ cần 3 bước để tạo CV. Không khó như dùng Word. CV thiết kế
+                theo chuẩn nhà tuyển dụng mong đợi.
+              </p>
+            </div>
+
+            <div class="col-md-3 col-sm-6 text-center">
+              <img class="img" src="./img/manage_resumes.svg" alt="Save time" />
+              <h5>Nổi bật hơn hẳn!</h5>
+              <p>
+                Nhà tuyển dụng lọc rất nhiều CV mỗi ngày, 14+ thiết kế CV hiện
+                đại của MyCV giúp bạn nổi bật hơn ứng viên khác.
+              </p>
+            </div>
+
+            <div class="col-md-3 col-sm-6 text-center">
+              <img class="img" src="./img/get_results.svg" alt="Save time" />
+              <h5>Có hướng dẫn viết CV!</h5>
+              <p>
+                Hướng dẫn viết CV chi tiết từng phần. Không mất thời, không phải
+                lo lắng cho việc không biết viết CV như thế nào.
+              </p>
+            </div>
+
+            <div class="col-md-3 col-sm-6 text-center">
+              <img
+                class="img mb-2"
+                src="./img/grab_attention.svg"
+                alt="Save time"
+              />
+              <h5>Miễn phí tải về PDF</h5>
+              <p>
+                MyCV vẫn trong thời gian miễn phí sử dụng. Bạn đang sở hữu CV
+                chuyên nghiệp tương đương gói trả phí $16/tháng.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- back to top -->
+      <div class="back-to-top">
+        <a id="btn-back-to-top"></a>
+      </div>
+    </div>
+
+    <audio autoplay loop>
+      <source src="/uploads/nhac.mp3" />
+    </audio>
+
+    <!-- script -->
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/searchtd.js"></script>
+    <script>
+      $.get("/json/local.json", function (data) {
+        data.map((val) => {
+          $(`
+          <option value="${val.code}">${val.name}</option>
+          `).appendTo("#codeCity");
+        });
+      });
+    </script>
+  </body>
+</html>
