@@ -1,5 +1,6 @@
 $(function () {
   $.get("/my-document/my", function (data) {
+    console.log(data);
     if (data.length > 0) {
       data.map((val, idx) => {
         $(`
@@ -8,19 +9,19 @@ $(function () {
               <div class="card__content">
                 <div class="float-end" style="color: red">
                   <i class="bi bi-x-circle ${
-                    val.eye ? "btn-delete-cv" : "btn-delete-td"
+                    val.cv ? "btn-delete-cv" : "btn-delete-td"
                   }" data-id=${val._id}></i>
                 </div>
                 <h3 class="card__header">Bài đăng ${idx + 1}</h3>
-                <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p class="card__info my-3">${val.job}</p>
                 <button class="btn btn-secondary btn-sm my-4 ${
-                  val.eye ? "btn-watch-cv" : "btn-watch-td"
+                  val.cv ? "btn-watch-cv" : "btn-watch-td"
                 }" data-id=${val._id} data-bs-toggle="modal" ${
-          val.eye ? "data-bs-target='#watchcv'" : "data-bs-target='#watchtd'"
+          val.cv ? "data-bs-target='#watchcv'" : "data-bs-target='#watchtd'"
         } >Xem</button>
 
                 ${
-                  !val.eye
+                  !val.cv
                     ? "<button class='btn btn-secondary btn-sm' id='btn-hoso' data-id='" +
                       val._id +
                       "' >Hồ sơ</button>"
@@ -38,7 +39,8 @@ $(function () {
   });
 
   $("body").on("click", "#btn-hoso", function () {
-    $(".hoso").show();
+    $(".hoso").toggle();
+    $(".row.list-mc").empty();
     let cvId = $(this).data("id");
 
     $.get("/searchTD/allcv/" + cvId, function (data) {
@@ -61,7 +63,7 @@ $(function () {
             `).appendTo(".row.list-mc");
         });
       } else {
-        $(".row.list-my").html("<h5>Không có bài đăng nào</h5>");
+        $(".row.list-mc").html("<h5>Không có bài đăng nào</h5>");
       }
     });
   });
@@ -77,16 +79,36 @@ $(function () {
 
       $(".modal-content.hide-cv").empty();
 
-      $(".modal-content.hide-cv").html(`<object
-      data="${namecv}"
-      type="application/pdf"
-      width="100%"
-      height="678"
-      >
-        <iframe src="${namecv}" width="100%" height="678">
-          <p>This browser does not support PDF!</p>
-        </iframe>
-      </object>
+      $(".modal-content.hide-cv").html(`
+      <div class="row">
+      <div class="col-9">
+        <object
+        data="${namecv}"
+        type="application/pdf"
+        width="100%"
+        height="678"
+        >
+          <iframe src="${namecv}" width="100%" height="678">
+            <p>This browser does not support PDF!</p>
+          </iframe>
+        </object>
+      </div>
+    <div class="col-3 bg-dark text-light p-4">
+      <h5 class"pt-2">THÔNG TIN LIÊN HỆ</h5>
+      <div style="font-size: 13px">
+        <div class="pt-2">
+          <b>Email:</b> ${data.name}
+        </div>
+        <div class="pt-2">
+          <b>Email:</b> ${data.email}
+        </div>
+        <div class="pt-1">
+          <b>Số điện thoại:</b> ${data.phone}
+        </div>
+      </div>
+      
+    </div>
+    </div>
     `);
     });
   });
@@ -95,27 +117,42 @@ $(function () {
     let id1 = $(this).data("id1");
     let id2 = $(this).data("id2");
 
-    console.log(id1);
-
     $.get("/searchTD/allcv/" + id2, function (data) {
-      console.log(data);
       let rs = data.filter((val) => val._id === id1);
-      console.log(rs);
 
       let namecv = rs[0].cv;
 
       $(".modal-content.hide-cv").empty();
 
-      $(".modal-content.hide-cv").html(`<object
-      data="${namecv}"
-      type="application/pdf"
-      width="100%"
-      height="678"
-      >
-        <iframe src="${namecv}" width="100%" height="678">
-          <p>This browser does not support PDF!</p>
-        </iframe>
-      </object>
+      $(".modal-content.hide-cv").html(`<div class="row">
+      <div class="col-9">
+        <object
+        data="${namecv}"
+        type="application/pdf"
+        width="100%"
+        height="678"
+        >
+          <iframe src="${namecv}" width="100%" height="678">
+            <p>This browser does not support PDF!</p>
+          </iframe>
+        </object>
+      </div>
+    <div class="col-3 bg-dark text-light p-4">
+      <h5 class"pt-2">THÔNG TIN LIÊN HỆ</h5>
+      <div style="font-size: 13px">
+        <div class="pt-2">
+          <b>Email:</b> ${data.name}
+        </div>
+        <div class="pt-2">
+          <b>Email:</b> ${data.email}
+        </div>
+        <div class="pt-1">
+          <b>Số điện thoại:</b> ${data.phone}
+        </div>
+      </div>
+      
+    </div>
+    </div>
     `);
     });
   });
@@ -204,34 +241,40 @@ $(function () {
   });
 
   $("body").on("click", ".btn-delete-cv", function () {
-    let idx = $(this).data("id");
-    $.ajax({
-      type: "DELETE",
-      url: "/postCV/" + idx,
-    })
-      .then((data) => {
-        if (data) alert("Xóa thành công !");
-        location.reload();
+    var choice = confirm("Bạn có chắc chắn muốn xóa không  ?");
+    if (choice) {
+      let idx = $(this).data("id");
+      $.ajax({
+        type: "DELETE",
+        url: "/postCV/" + idx,
       })
-      .catch((error) => {
-        alert(error.responseText);
-        console.log(error.responseText);
-      });
+        .then((data) => {
+          if (data) alert(data);
+          location.reload();
+        })
+        .catch((error) => {
+          alert(error.responseText);
+          console.log(error.responseText);
+        });
+    }
   });
 
   $("body").on("click", ".btn-delete-td", function () {
-    let idx = $(this).data("id");
-    $.ajax({
-      type: "DELETE",
-      url: "/postTD/" + idx,
-    })
-      .then((data) => {
-        if (data) alert("Xóa thành công !");
-        location.reload();
+    var choice = confirm("Bạn có chắc chắn muốn xóa không  ?");
+    if (choice) {
+      let idx = $(this).data("id");
+      $.ajax({
+        type: "DELETE",
+        url: "/postTD/" + idx,
       })
-      .catch((error) => {
-        alert(error.responseText);
-        console.log(error.responseText);
-      });
+        .then((data) => {
+          if (data) alert(data);
+          location.reload();
+        })
+        .catch((error) => {
+          alert(error.responseText);
+          console.log(error.responseText);
+        });
+    }
   });
 });

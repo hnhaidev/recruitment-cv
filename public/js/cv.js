@@ -308,7 +308,6 @@ $("#btn-update-translate").click(function (e) {
   e.preventDefault();
   $("#translatecv").empty();
   let valskill = $("#translate-cv-c").val();
-  console.log(valskill);
   $("#translatecv").html(`<li>${valskill} </li>`);
 });
 $("#btn-add-translate").click(function (e) {

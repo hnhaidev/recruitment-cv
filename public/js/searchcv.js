@@ -42,20 +42,42 @@ $(function () {
       success: function (response) {},
     });
     $.get("/searchCV/" + cvId, function (data) {
+      console.log(data);
       let namecv = data.cv;
 
       $(".modal-content.hide-cv").empty();
 
-      $(`<object
-        data="${namecv}"
-        type="application/pdf"
-        width="100%"
-        height="678"
-        >
-          <iframe src="${namecv}" width="100%" height="678">
-            <p>This browser does not support PDF!</p>
-          </iframe>
-        </object>
+      $(`
+      <div class="row">
+        <div class="col-9">
+          <object
+          data="${namecv}"
+          type="application/pdf"
+          width="100%"
+          height="678"
+          >
+            <iframe src="${namecv}" width="100%" height="678">
+              <p>This browser does not support PDF!</p>
+            </iframe>
+          </object>
+        </div>
+      <div class="col-3 bg-dark text-light p-4">
+        <h5 class"pt-2">THÔNG TIN LIÊN HỆ</h5>
+        <div style="font-size: 13px">
+          <div class="pt-2">
+            <b>Email:</b> ${data.name}
+          </div>
+          <div class="pt-2">
+            <b>Email:</b> ${data.email}
+          </div>
+          <div class="pt-1">
+            <b>Số điện thoại:</b> ${data.phone}
+          </div>
+        </div>
+        
+      </div>
+      </div>
+      
       `).appendTo(".modal-content.hide-cv");
     });
   });

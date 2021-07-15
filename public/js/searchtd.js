@@ -30,9 +30,10 @@ $(function () {
     let cvId = $(this).data("id");
 
     $.get("/searchTD/" + cvId, function (data) {
-      $(".modal-content.hide-cv").empty();
+      if (typeof data === "object") {
+        $(".modal-content.hide-cv").empty();
 
-      $(`<section class="p-2 modal-td" style="font-size: 12px">
+        $(`<section class="p-2 modal-td" style="font-size: 12px">
 					<section class="p-3">
 						<h3>${data.job}</h3>
 						<p>${data.nameCompany}</p>
@@ -209,6 +210,9 @@ $(function () {
 					</div>
 				</div>
       `).appendTo(".modal-content.hide-cv");
+      } else {
+        window.location.href = "/login";
+      }
     });
   });
 

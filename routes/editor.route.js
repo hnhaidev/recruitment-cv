@@ -4,27 +4,44 @@ const authMiddleware = require("../middlewares/auth.middleware");
 const FormCVModel = require("../models/FormCV");
 const router = express.Router();
 
-router.get("/", authMiddleware, (req, res) => {
+router.get("/", (req, res) => {
   const duongdan = path.join(__dirname, "../views/editor.html");
   res.sendFile(duongdan);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   const { img, path, type } = req.body;
   try {
     const newFormCV = { img, path };
     if (type) newFormCV.type = type;
 
-    await new FormCVModel(newFormCV).save();
+    let dt = await new FormCVModel(newFormCV).save();
 
-    return res.json("thanhcong");
+    return res.status(200).json(dt);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send(`Lỗi Server !`);
+  }
+});
+router.delete("/:id", authMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const formcv = await FormCVModel.findById(id);
+
+    if (!formcv) {
+      return res.status(404).send("Không tìm thấy bài viết !");
+    }
+
+    await formcv.remove();
+    return res.status(200).send("Đã xóa bài viết thành công !");
   } catch (error) {
     console.error(error);
     return res.status(500).send(`Lỗi Server !`);
   }
 });
 
-router.get("/formcv", authMiddleware, async (req, res) => {
+router.get("/formcv", async (req, res) => {
   try {
     const formcvs = await FormCVModel.find();
 
