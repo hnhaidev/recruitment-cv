@@ -34,7 +34,7 @@ $(document).ready(function () {
         bt: `<button class="btn btn-danger btn-sm btn-delete-cv" data-id="${val._id}"> xóa </button>`,
       };
     });
-    $("#table-cv").DataTable({
+    $(".table-cv").DataTable({
       processing: true,
       data: dataCV,
       columns: [
@@ -58,7 +58,7 @@ $(document).ready(function () {
         bt: `<button class="btn btn-danger btn-sm btn-delete-td" data-id="${val._id}"> xóa </button>`,
       };
     });
-    $("#table-td").DataTable({
+    $(".table-td").DataTable({
       processing: true,
       data: dataTD,
       columns: [
@@ -68,6 +68,21 @@ $(document).ready(function () {
         { data: "salary" },
         { data: "bt" },
       ],
+    });
+  });
+
+  $.get("/admin/allformcv", function (data) {
+    var dataTD = data.map((val) => {
+      return {
+        img: `<img src=${val.img} height="100" width="100" />`,
+        path: val.path,
+        bt: `<button class="btn btn-danger btn-sm btn-delete-td" data-id="${val._id}"> xóa </button>`,
+      };
+    });
+    $("#table-formcv").DataTable({
+      processing: true,
+      data: dataTD,
+      columns: [{ data: "img" }, { data: "path" }, { data: "bt" }],
     });
   });
 

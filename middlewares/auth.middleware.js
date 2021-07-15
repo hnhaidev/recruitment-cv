@@ -4,7 +4,7 @@ const UserModel = require("../models/UserModel");
 module.exports = async (req, res, next) => {
   try {
     if (!req.cookies.token) {
-      return res.redirect("/");
+      return res.redirect("/login");
     }
 
     const { userId } = jwt.verify(req.cookies.token, process.env.jwtSecret);
@@ -17,7 +17,7 @@ module.exports = async (req, res, next) => {
         req.user = data;
         next();
       } else {
-        return res.redirect("/");
+        return res.redirect("/login");
       }
     });
 
@@ -25,6 +25,6 @@ module.exports = async (req, res, next) => {
     // next();
   } catch (error) {
     console.error(error);
-    return res.redirect("/");
+    return res.redirect("/login");
   }
 };

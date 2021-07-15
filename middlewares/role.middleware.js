@@ -4,7 +4,7 @@ module.exports.checkEmployer = async (req, res, next) => {
   if (role === "employer" || role === "root") {
     next();
   } else {
-    res.redirect("/");
+    res.redirect("/login");
   }
 };
 
@@ -14,6 +14,6 @@ module.exports.checkAdmin = async (req, res, next) => {
   if (role === "root") {
     next();
   } else {
-    res.redirect("/");
+    res.redirect("/login");
   }
 };

@@ -147,3 +147,7 @@ body {
   width: 220px;
   padding: 10px;
 }
+
+#btn-username {
+  cursor: pointer;
+}

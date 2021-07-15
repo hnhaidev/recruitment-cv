@@ -22,7 +22,7 @@ router.get("/listcv", authMiddleware, checkEmployer, async (req, res) => {
   }
 });
 
-router.get("/:id", authMiddleware, checkEmployer, async (req, res) => {
+router.get("/:id", authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
 

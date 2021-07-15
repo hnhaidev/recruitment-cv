@@ -57,6 +57,58 @@ $(function () {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "300");
   });
+
+  $("#thongke").click(function (e) {
+    e.preventDefault();
+    $(this).addClass("active");
+    $("#maucv").removeClass("active");
+    $("#postungvien").removeClass("active");
+    $("#posttuyendung").removeClass("active");
+
+    $(".maucv").hide();
+    $(".thongke").show();
+    $(".postungvien").hide();
+    $(".posttuyendung").hide();
+  });
+
+  $("#maucv").click(function (e) {
+    e.preventDefault();
+    $(this).addClass("active");
+    $("#thongke").removeClass("active");
+    $("#postungvien").removeClass("active");
+    $("#posttuyendung").removeClass("active");
+
+    $(".maucv").show();
+    $(".thongke").hide();
+    $(".postungvien").hide();
+    $(".posttuyendung").hide();
+  });
+
+  $("#postungvien").click(function (e) {
+    e.preventDefault();
+    $(this).addClass("active");
+    $("#thongke").removeClass("active");
+    $("#maucv").removeClass("active");
+    $("#posttuyendung").removeClass("active");
+
+    $(".maucv").hide();
+    $(".thongke").hide();
+    $(".postungvien").show();
+    $(".posttuyendung").hide();
+  });
+
+  $("#posttuyendung").click(function (e) {
+    e.preventDefault();
+    $(this).addClass("active");
+    $("#thongke").removeClass("active");
+    $("#postungvien").removeClass("active");
+    $("#maucv").removeClass("active");
+
+    $(".maucv").hide();
+    $(".thongke").hide();
+    $(".postungvien").hide();
+    $(".posttuyendung").show();
+  });
 });
 
 function getCookie(name) {
