@@ -13,11 +13,20 @@ $(function () {
                 </div>
                 <h3 class="card__header">Bài đăng ${idx + 1}</h3>
                 <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button class="btn btn-secondary my-4 ${
+                <button class="btn btn-secondary btn-sm my-4 ${
                   val.eye ? "btn-watch-cv" : "btn-watch-td"
                 }" data-id=${val._id} data-bs-toggle="modal" ${
           val.eye ? "data-bs-target='#watchcv'" : "data-bs-target='#watchtd'"
         } >Xem</button>
+
+                ${
+                  !val.eye
+                    ? "<button class='btn btn-secondary btn-sm' id='btn-hoso' data-id='" +
+                      val._id +
+                      "' >Hồ sơ</button>"
+                    : ""
+                }
+                
               </div>
             </div>
           </div>
@@ -28,6 +37,35 @@ $(function () {
     }
   });
 
+  $("body").on("click", "#btn-hoso", function () {
+    $(".hoso").show();
+    let cvId = $(this).data("id");
+
+    $.get("/searchTD/allcv/" + cvId, function (data) {
+      if (data.length > 0) {
+        data.map((val, idx) => {
+          $(`
+            <div class="col-3">
+              <div class="card-cv">
+                <div class="card__content">
+                  <h3 class="card__header">Hồ sơ ${idx + 1}</h3>
+                  <p class="card__info">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <button class="btn btn-secondary btn-sm my-4 btn-watch-cv2" data-id1=${
+                    val._id
+                  } data-id2=${cvId} data-bs-toggle="modal" data-bs-target='#watchcv2'
+                    >Xem</button>
+  
+                </div>
+              </div>
+            </div>
+            `).appendTo(".row.list-mc");
+        });
+      } else {
+        $(".row.list-my").html("<h5>Không có bài đăng nào</h5>");
+      }
+    });
+  });
+
   $("body").on("click", ".btn-watch-cv", function () {
     let cvId = $(this).data("id");
 
@@ -36,6 +74,35 @@ $(function () {
     $.get("/searchCV/" + cvId, function (data) {
       let namecv = data.cv;
       console.log(data);
+
+      $(".modal-content.hide-cv").empty();
+
+      $(".modal-content.hide-cv").html(`<object
+      data="${namecv}"
+      type="application/pdf"
+      width="100%"
+      height="678"
+      >
+        <iframe src="${namecv}" width="100%" height="678">
+          <p>This browser does not support PDF!</p>
+        </iframe>
+      </object>
+    `);
+    });
+  });
+
+  $("body").on("click", ".btn-watch-cv2", function () {
+    let id1 = $(this).data("id1");
+    let id2 = $(this).data("id2");
+
+    console.log(id1);
+
+    $.get("/searchTD/allcv/" + id2, function (data) {
+      console.log(data);
+      let rs = data.filter((val) => val._id === id1);
+      console.log(rs);
+
+      let namecv = rs[0].cv;
 
       $(".modal-content.hide-cv").empty();
 

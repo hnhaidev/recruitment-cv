@@ -5,12 +5,12 @@ const PostTDModel = require("../models/PostTDModel");
 
 const router = express.Router();
 
-router.get("/", authMiddleware, (req, res) => {
+router.get("/", (req, res) => {
   const duongdan = path.join(__dirname, "../views/searchTD.html");
   res.sendFile(duongdan);
 });
 
-router.get("/listtd", authMiddleware, async (req, res) => {
+router.get("/listtd", async (req, res) => {
   try {
     const listcv = await PostTDModel.find().sort({ createdAt: -1 });
 
@@ -28,6 +28,19 @@ router.get("/:id", authMiddleware, async (req, res) => {
     const cv = await PostTDModel.findById(id);
 
     return res.status(200).json(cv);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send(`Lỗi Server !`);
+  }
+});
+
+router.get("/allcv/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const cv = await PostTDModel.findById(id);
+
+    return res.status(200).json(cv.candidates);
   } catch (error) {
     console.error(error);
     return res.status(500).send(`Lỗi Server !`);
