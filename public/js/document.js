@@ -141,7 +141,7 @@ $(function () {
       <h5 class"pt-2">THÔNG TIN LIÊN HỆ</h5>
       <div style="font-size: 13px">
         <div class="pt-2">
-          <b>Email:</b> ${data.name}
+          <b>Họ tên:</b> ${data.name}
         </div>
         <div class="pt-2">
           <b>Email:</b> ${data.email}
