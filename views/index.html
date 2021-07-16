@@ -204,6 +204,100 @@
         </div>
       </section>
 
+      <section class="mt-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-9">
+              <div class="card bg-secondary">
+                <div class="card-header"><b>Danh sách ứng viên</b></div>
+                <div class="card-body">
+                  <div id="listtd"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="card bg-secondary">
+                <div class="card-header"><b>Ưu tiên hiển thị</b></div>
+                <div class="card-body">
+                  <div>
+                    <label for="experience" class="form-label label-text"
+                      >Giới tính</label
+                    >
+                    <select
+                      class="form-select form-select-sm bg-secondary text-light"
+                      id="experience"
+                      name="experience"
+                      required
+                    >
+                      <option selected disabled value="">Tất cả</option>
+                      <option value="Chưa có kinh nghiệm">
+                        Chưa có kinh nghiệm
+                      </option>
+                      <option value="Dưới 1 năm">Dưới 1 năm</option>
+                      <option value="1 năm">1 năm</option>
+                      <option value="2 năm">2 năm</option>
+                      <option value="3 năm">3 năm</option>
+                      <option value="4 năm">4 năm</option>
+                      <option value="5 năm">5 năm</option>
+                      <option value="Trên 5 năm">Trên 5 năm</option>
+                    </select>
+                  </div>
+
+                  <div class="mt-3">
+                    <label for="experience" class="form-label label-text"
+                      >Trình độ học vấn</label
+                    >
+                    <select
+                      class="form-select form-select-sm bg-secondary text-light"
+                      id="experience"
+                      name="experience"
+                      required
+                    >
+                      <option selected disabled value="">Tất cả</option>
+                      <option value="Chưa có kinh nghiệm">
+                        Chưa có kinh nghiệm
+                      </option>
+                      <option value="Dưới 1 năm">Dưới 1 năm</option>
+                      <option value="1 năm">1 năm</option>
+                      <option value="2 năm">2 năm</option>
+                      <option value="3 năm">3 năm</option>
+                      <option value="4 năm">4 năm</option>
+                      <option value="5 năm">5 năm</option>
+                      <option value="Trên 5 năm">Trên 5 năm</option>
+                    </select>
+                  </div>
+
+                  <div class="mt-3">
+                    <label for="experience" class="form-label label-text"
+                      >Trường học</label
+                    >
+                    <select
+                      class="form-select form-select-sm bg-secondary text-light"
+                      id="experience"
+                      name="experience"
+                      required
+                    >
+                      <option selected disabled value="">Tất cả</option>
+                      <option value="Chưa có kinh nghiệm">
+                        Chưa có kinh nghiệm
+                      </option>
+                      <option value="Dưới 1 năm">Dưới 1 năm</option>
+                      <option value="1 năm">1 năm</option>
+                      <option value="2 năm">2 năm</option>
+                      <option value="3 năm">3 năm</option>
+                      <option value="4 năm">4 năm</option>
+                      <option value="5 năm">5 năm</option>
+                      <option value="Trên 5 năm">Trên 5 năm</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="mt-5 step-build-cv">
         <div class="container">
           <h2 class="text-center">
@@ -299,6 +393,18 @@
       <!-- back to top -->
       <div class="back-to-top">
         <a id="btn-back-to-top"></a>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="icv"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg text-dark">
+        <div class="modal-content hide-cv"></div>
       </div>
     </div>
 
